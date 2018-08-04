@@ -1,0 +1,22 @@
+Line
+"1. How does your data structure allow developers to access and manipulate the data?"
+The line is built on an array (self.members = []) which allows a developer to add with the join() function to the line or allow one to be removed with leave().
+
+"2. If a developer wanted to find a specific element in your data structure, how would you search for it?"
+A developer would use the search() function and if that search found something, a value would be returned.
+
+"3. What other real-world data can each structure represent?"
+If built out with more complexity, it could be used by a ride-sharing application for people that want to wait in a line to pickup people at a stadium or airport.
+
+
+
+Screen
+
+"1. How does your data structure allow developers to access and manipulate the data?"
+A developer would access this data through the two dimensional array named matrix. They would manipulate the data with the use of the insert() function.
+
+"2. If a developer wanted to find a specific element in your data structure, how would you search for it?"
+A developer would have to search through the matrix 2 dimensional (x and y) array to perform a search.
+
+"3. What other real-world data can each structure represent?"
+Without getting too complicated, this could be used for an electronic game of Battleship, chess or checkers etc.
