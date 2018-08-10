@@ -8,7 +8,7 @@ class MyStack
 
   def push(item)
     self.top = item
-    @stack[0] = self.top
+    @stack[@stack.length] = self.top
   end
 
   def pop
