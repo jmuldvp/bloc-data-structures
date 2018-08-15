@@ -3,7 +3,7 @@ class Node
   attr_accessor :data
 
   def initialize(data)
-    @data = Array.new
-    @next = data
+    @data = data
+    @next = nil
   end
 end
