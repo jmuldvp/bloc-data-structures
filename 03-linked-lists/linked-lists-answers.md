@@ -1,0 +1,3 @@
+> 1. What is Spatial Locality and why does it benefit performance?
+
+Spatial locality is kind of like checking out all the books in the library having to do with programming and taking them home and putting them all on a shelf or in a pile.  Every time you need to look something up, pulling out a book from a pile or a shelf is a lot faster than having to go back to the library to check out a different programming book to look something up.  As far as performance, it's a lot faster look up something that's all together than it is to have to drive somewhere to get it or to do another query on the RAM.
