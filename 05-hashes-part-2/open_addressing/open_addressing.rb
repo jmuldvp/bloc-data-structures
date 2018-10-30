@@ -2,15 +2,31 @@ require_relative 'node'
 
 class OpenAddressing
   def initialize(size)
-    @size = size
+    @items = Array.new(size)
   end
 
   def []=(key, value)
+    new_item = Node.new(key, value)
+    i = self.index(key, size)
+    if @items[i] == nil
+      @items[i] = new_item
+    elsif @items[i].key != key
+      self.resize
+      self[key] = value
+    elsif (@items[i].key === key) && (@items[i].value != value)
+      if self.next_open_index(@items[i]) === -1
+        self.resize
+        @items[i] = value
+      elsif self.next_open_index(@items[i]) != -1
+        @items[i] = value
+      end
+    end
   end
 
   def [](key)
-    index = self.index(key, size)
-    @items[index].value
+    if @items[index(key, size)] != nil && @items[index(key, size)].key === key
+      @items[index(key, size)].value
+    end
   end
 
   # Returns a unique, deterministically reproducible index into an array
@@ -27,7 +43,11 @@ class OpenAddressing
   # Given an index, find the next open index in @items
   def next_open_index(index)
     @items.each do |item|
-      item === nil ? index : -1
+      if item === nil
+        return index #return index where item == nil
+      else
+        return -1
+      end
     end
   end
 
@@ -38,13 +58,21 @@ class OpenAddressing
 
   # Resize the hash
   def resize
-    prev_arr = @items
-    @items = Array.new(size * 2)
+    old_array = @items
+    @items = Array.new(old_array.length * 2)
+    old_array.each do |item|
+      unless item === nil
+        self[item.key] = item.value
+      end
+    end
+  end
 
-    for item in prev_arr do
-      if item
-        index = index(item.key, size)
-        @items[index] = item
+  def display_info
+    puts "Number of items in hash: #{@item_count}"
+    @items.each do |i|
+      if i != nil
+        ind = self.index(i.key, size)
+        puts "Key: #{i.key}, Value: #{i.value}, Point in Array: #{ind}"
       end
     end
   end

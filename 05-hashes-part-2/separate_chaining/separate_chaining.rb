@@ -5,7 +5,7 @@ class SeparateChaining
 
   def initialize(size)
     @items = Array.new(size)
-    @i_ct = 0
+    @items_ct = 0
     @max_load_factor = 0.7
   end
 
@@ -18,14 +18,12 @@ class SeparateChaining
 
     list.add_to_tail(n)
     @items[i] = list
-    @i_ct = @i_ct + 1
-
-    # Resize the hash if the load factor grows too large
+    @items_ct = @items_ct + 1
     if load_factor.to_f > max_load_factor.to_f
       resize
     end
     # puts "Info: #{display_info}"
-    # p "Key = #{key} : Value = #{value} is in slot #{index}"
+
   end
 
   def [](key)
@@ -49,14 +47,14 @@ class SeparateChaining
     key.each_byte do |i|
       eachbyte += i
     end
-    p "Index = #{eachbyte % size}"
+    # p "Index = #{eachbyte % size}"
     eachbyte % size
   end
 
   # Calculate the current load factor
   def load_factor
-    puts @i_ct / self.size.to_f
-    return @i_ct / self.size.to_f
+    # puts @items_ct / self.size.to_f
+    return @items_ct / self.size.to_f
   end
 
   # Simple method to return the number of items in the hash
@@ -72,7 +70,6 @@ class SeparateChaining
       list = @items[i]
       if list != nil
         curr = list.head
-        # We only need to compute the new index once
         new_index = index(curr.key, new_items.size)
         while curr != nil
           list = LinkedList.new
@@ -96,6 +93,12 @@ class SeparateChaining
   			end
   		end
   	end
+    @items.each do |list|
+      puts list.head
+    end
     puts info
+    # puts @items[0].head
+    # puts @items[0].head.key
+    # puts @items[0].head.value
   end
 end
