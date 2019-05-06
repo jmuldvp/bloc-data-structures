@@ -58,6 +58,8 @@ puts SixDegrees.new.find_kevin_bacon(Kevin_Bacon, Jean_Simmons)
 puts SixDegrees.new.find_kevin_bacon(Kevin_Bacon, Dean_Martin)
 puts SixDegrees.new.find_kevin_bacon(Kevin_Bacon, James_Stewart)
 puts SixDegrees.new.find_kevin_bacon(Kevin_Bacon, Tom_Sizemore)
+puts SixDegrees.new.find_kevin_bacon(Kevin_Bacon, Lori_Singer)
+puts SixDegrees.new.find_kevin_bacon(Kevin_Bacon, Kathy_Bates)
 puts Kevin_Bacon.name
 
 # binding.pry

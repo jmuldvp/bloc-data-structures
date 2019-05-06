@@ -8,9 +8,9 @@ class SixDegrees
 
   def find_kevin_bacon(kb, target)
     return puts "Yes Kevin == Kevin" if kb == target
-    @actors_visited.push(target)
+    @actors_visited.push(kb)
     list = []
-    list.push(target)
+    list.push(kb)
 
     while list.any?
       temp = list.shift
